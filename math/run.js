@@ -5,7 +5,7 @@ let answers_wrong = [0,0,0,0];
 let answers         = [];
 let num_of_trials   = 0;
 let include_zero    = false;
-let type            = -1;
+let type            = -1; 
 
 let timer           = 5;  // 180
 
