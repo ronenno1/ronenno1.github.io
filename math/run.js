@@ -5,7 +5,7 @@ let answers_wrong = [0,0,0,0];
 let answers         = [];
 let num_of_trials   = 0;
 let include_zero    = false;
-let type            = -1; 
+let type            = -1;
 
 let timer           = 5;  // 180
 
@@ -169,18 +169,7 @@ function init_next()
     $('#res').val(statement['value']);
     let finish = false;
     if(finish)
-    {
-        $('.box').html('');
-
-        $.post('./rpc/run.rpc.php',
-        {action: 'get_end'}, function(ret){
-
-            var ret_arr = JSON.parse(ret);
-            $('.box').html(ret_arr['html']);
-            $(document).fullscreen(false);
-        });    
-        return;
-    }
+        return $('.box').html('');
 
     $('#inp').removeClass('empty');
     $('.box').hide().show();
@@ -193,10 +182,8 @@ function init_next()
 
 function keypress_action(e){
     $('#inp').removeClass('empty');
-
     if(e.which === 13)
         return send_answer();
-
     if(!changed){
         ret     = $.now();
         changed = true;
