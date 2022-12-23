@@ -20,7 +20,7 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 		var iatObj =
 		{
 			fullscreen:false, //Should we show the task in full screen? A Qualtrics-only feature because in the usual Minno, we can go full-screen right at the beginning of the study.
-        
+        		showDebriefing:true,
 			isTouch:false, //Set whether the task is on a touch device.
 			//Set the canvas of the task
 			canvas : {
@@ -1196,7 +1196,7 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 				nTrialsInMini : nTrialsInMini, currentCond : blockCondition, cong:isCompatible, 
 				rightTrial1 : rightAttTrial, leftTrial1 : leftAttTrial,
 				rightTrial2 : rightCatTrial, leftTrial2 : leftCatTrial,
-				blockNum : iBlock, blockLayout : blockLayout, parcel:'second'}));
+				blockNum : iBlock, blockLayout : blockLayout, parcel:'first'}));
 			}
 		    iBlock++;
 		}
@@ -1294,7 +1294,7 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 				nTrialsInMini : nTrialsInMini, currentCond : blockCondition, cong:isCompatible, 
 				rightTrial1 : rightAttTrial, leftTrial1 : leftAttTrial,
 				rightTrial2 : rightCatTrial, leftTrial2 : leftCatTrial,
-				blockNum : iBlock, blockLayout : blockLayout, parcel:'second'}));
+				blockNum : iBlock, blockLayout : blockLayout, parcel:'first'}));
 			}
         }
 
