@@ -1414,13 +1414,13 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 
 		//Set the feedback messages.
 		var messageDef = [
-				{ cut:'-0.65', message : getFB(piCurrent.fb_strong_Att1WithCatA_Att2WithCatB+'--'+piCurrent.d , cat1.name, cat2.name) },
-				{ cut:'-0.35', message : getFB(piCurrent.fb_moderate_Att1WithCatA_Att2WithCatB+'--'+piCurrent.d , cat1.name, cat2.name) },
-				{ cut:'-0.15', message : getFB(piCurrent.fb_slight_Att1WithCatA_Att2WithCatB+'--'+piCurrent.d , cat1.name, cat2.name) },
-				{ cut:'0.15', message : getFB(piCurrent.fb_equal_CatAvsCatB+'--'+piCurrent.d , cat1.name, cat2.name) },
-				{ cut:'0.35', message : getFB(piCurrent.fb_slight_Att1WithCatA_Att2WithCatB+'--'+piCurrent.d , cat2.name, cat1.name) },
-				{ cut:'0.65', message : getFB(piCurrent.fb_moderate_Att1WithCatA_Att2WithCatB+'--'+piCurrent.d , cat2.name, cat1.name) },
-				{ cut:'5', message : getFB(piCurrent.fb_strong_Att1WithCatA_Att2WithCatB+'--'+piCurrent.d , cat2.name, cat1.name) }
+				{ cut:'-0.65', message : getFB(piCurrent.fb_strong_Att1WithCatA_Att2WithCatB , cat1.name, cat2.name) },
+				{ cut:'-0.35', message : getFB(piCurrent.fb_moderate_Att1WithCatA_Att2WithCatB , cat1.name, cat2.name) },
+				{ cut:'-0.15', message : getFB(piCurrent.fb_slight_Att1WithCatA_Att2WithCatB , cat1.name, cat2.name) },
+				{ cut:'0.15', message : getFB(piCurrent.fb_equal_CatAvsCatB , cat1.name, cat2.name) },
+				{ cut:'0.35', message : getFB(piCurrent.fb_slight_Att1WithCatA_Att2WithCatB , cat2.name, cat1.name) },
+				{ cut:'0.65', message : getFB(piCurrent.fb_moderate_Att1WithCatA_Att2WithCatB , cat2.name, cat1.name) },
+				{ cut:'5', message : getFB(piCurrent.fb_strong_Att1WithCatA_Att2WithCatB , cat2.name, cat1.name) }
 		];
 		var scoreMessageObject = { MessageDef : messageDef };
 		if (piCurrent.manyErrors !== '')
