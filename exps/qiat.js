@@ -1304,6 +1304,7 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 			layout : [{media:{word:''}}],
 			customize : function(element, global){
 				var DScoreObj = scorer.computeD();
+				console.log(DScoreObj);
 				piCurrent.feedback = DScoreObj.FBMsg;
 				piCurrent.d = DScoreObj.DScore;
 			},
