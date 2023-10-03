@@ -28,9 +28,8 @@ function init_data_pipe(API, experimentID, file_type='json') {
         },
         // Set logs into an input (i.e. put them wherever you want)
         send: function(logName, serialized, settings, ctx){
-            console.log(file_type);
+            
             let data = '';
-
             if (file_type ==='csv'){
                 data = toCsv(pivot(serialized));
             }
@@ -57,13 +56,11 @@ function init_data_pipe(API, experimentID, file_type='json') {
                         filename: logName+'_'+hash+'.'+file_type,
                         data: data
                       })
-                   });
-               }
+                });
+            }
         }
     });
 }
-
-
 
 function pivot(arr) {
     var mp = new Map();
@@ -91,90 +88,3 @@ function toCsv(arr, separator=',') {
         row.map ( val => isNaN(val) ? JSON.stringify(val) : +val ).join(separator)
     ).join('\n');
 }
-
-// let getInitialVarMap = function(data) {
-//     const defaultValueName = 'data'; // name used for non json items in data arrays
-
-//     let varMap = {};
-//     let varMaps = [];
-//     Object.keys(data).forEach(function(key) {
-
-//         if (key[0] == '_') {
-//             return varMap;
-//         }
-//         let item = data[key];
-//         if (key != 'data') //TODO: what to do if collision happens
-//         {
-//             if (varMap[key] == null) {
-//                 varMap[key] = item;
-//             }
-//         }
-//     });
-//     let item = data.data;
-//     /*try {
-// 		item = JSON.parse(item);
-// 	} catch (e) {}*/
-//     let pushVarMaps = false;
-//     if ((item!=null && item.length > 0 && typeof item == 'object')) {
-//         item.forEach(function(row, index) {
-//             if (Object.keys(row).length > 0 && typeof row == 'object') {
-//                 varMaps.push(getVarMap(row, dataPrefix,  Object.assign({}, varMap)));//JSON.parse(JSON.stringify(varMap))));
-
-//             } else {
-//                 if (varMap[defaultValueName + varSplit + index] == null) {
-//                     varMap[defaultValueName + varSplit + index] = row;
-//                     pushVarMaps = true;
-//                 }
-//             }
-
-//         });
-//     } else {
-//         varMap[defaultValueName] = item;
-//         pushVarMaps = true;
-//     }
-//     if (pushVarMaps) {
-//         varMaps.push(varMap);
-//     }
-//     console.log({data});
-
-//     console.log({varMaps});
-//     return varMaps;
-// };
-
-
-// let arrayToCsvString = function(theArray, separator) {
-//     let newString = '';
-//     if (theArray.length == 0) {
-//         return '';
-//     }
-//     newString += csvEscape(theArray[0]);
-//     for (let x = 1; x < theArray.length; x++) {
-//         newString += separator + csvEscape(theArray[x]);
-//     }
-//     newString += '\n';
-//     return newString;
-// };
-
-
-// let csvEscape = function(theString) {
-//     if (typeof(theString)!=undefined && theString!==null) {
-//         theString = theString + '';
-//     } else {
-//         return '';
-//     }
-//     if (theString.includes('"') || theString.includes(',') || theString.includes('\n') || theString.includes('\t')) {
-//         let newString = '';
-//         newString += '"';
-//         for (let x = 0; x < theString.length; x++) {
-//             newString += theString[x];
-//             if (theString[x] == '"') {
-//                 newString += '"'; //escape double quotes this way
-//             }
-//         }
-
-//         newString += '"';
-//         return newString;
-//     } else {
-//         return theString;
-//     }
-// };
