@@ -3,7 +3,7 @@ define(['managerAPI', 'dataPipe.js'], function(Manager){
 	var API    = new Manager();
     API.addSettings('rtl', true);
     // API.setName('taskNameTest');
-    init_data_pipe(API, 'qH8i5g1AMmBd');
+    init_data_pipe(API, 'qH8i5g1AMmBd', 'csv');
     // init_data_pipe(API, 'qH8i5g1AMmBd', 'csv');
     // var APIglobal = API.getGlobal(); 
 
