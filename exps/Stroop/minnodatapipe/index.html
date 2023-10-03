@@ -1,0 +1,45 @@
+<html>
+<head>
+<script>
+
+    // load MinnoJS from the CDN (you probably don't need to change this)
+    var scriptTag = document.createElement('script');
+    scriptTag.src = 'https://cdn.jsdelivr.net/gh/minnojs/minno-quest@0.3/dist/pi-minno.js';
+    scriptTag.onload = onLoad;
+    scriptTag.onreadystatechange = onLoad;
+
+    document.head.appendChild(scriptTag);
+
+    // create the root element for Minno
+
+
+
+
+    // function to proceed to next question
+
+
+    // This function gets activated only after MinnoJS is loaded
+    function onLoad() {
+        var canvas = document.createElement('div');
+        console.log(canvas);
+        document.body.appendChild(canvas);
+
+        // Run your study (just set the correct URL)
+        minnoJS(canvas, 'http://localhost/minno_static/minnodatapipe/Runner.js');
+
+        // MinnoJS doesn't know about Qualtrics, we pass a function to inject the results into the question
+        // For some reason `piGlobal` isn't available so we attach it to `minnoJS`
+
+
+        // At the end of the study let MinnoJS proceed to the next question
+        // We need to wait a few miliseconds for Qualtrics to register the value that we entered
+        minnoJS.onEnd = function () { setTimeout(proceed, 100); }
+    }
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
