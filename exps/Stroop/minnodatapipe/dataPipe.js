@@ -83,7 +83,6 @@ function pivot(arr) {
 }
 
 function toCsv(arr, separator=',') {
-    console.log(arr);
     return arr.map( row => 
         row.map ( val => isNaN(val) ? JSON.stringify(val) : +val ).join(separator)
     ).join('\n');
