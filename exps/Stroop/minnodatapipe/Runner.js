@@ -199,7 +199,7 @@ define(['managerAPI', 'dataPipe.js'], function(Manager){
             name: 'images',
             templateUrl: 'images.jst',
             title: 'Objects',
-            piTemplate: true
+            piTemplate: false
         }],
         
 	    subject : 
