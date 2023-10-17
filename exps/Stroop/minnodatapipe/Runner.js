@@ -188,7 +188,7 @@ define(['managerAPI', 'dataPipe.js'], function(Manager){
             name: 'realstart',
             templateUrl: 'realstart.jst',
             title: 'טופס הסכמה',
-            piTemplate: true,
+            piTemplate: false,
             header: 'ברוכים הבאים לניסוי'
         }],
 
