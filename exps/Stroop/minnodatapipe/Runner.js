@@ -243,14 +243,14 @@ define(['managerAPI', 'dataPipe.js'], function(Manager){
 
     //define the sequence of the study
     API.addSequence([
-        // {inherit: 'realstart'},
-        // {inherit: 'subject'},
-        // {inherit: 'welcome'},
+         {inherit: 'realstart'},
+         {inherit: 'subject'},
+         {inherit: 'welcome'},
 
-        {inherit: 'Stroop'},
-        // {inherit: 'deb'},
+        //{inherit: 'Stroop'},
+         {inherit: 'deb'},
 
-        // {inherit: 'debriefing'},
+ {inherit: 'debriefing'},
          {inherit: 'end'}
 	]);
 	
