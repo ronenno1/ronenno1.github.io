@@ -1,4 +1,4 @@
-define(['managerAPI', 'datapipe.js'], function(Manager){
+define(['managerAPI', 'dataPipe.js'], function(Manager){
 
 	var API    = new Manager();
     API.addSettings('rtl', true);
