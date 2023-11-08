@@ -3,7 +3,7 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@0.1/da
 	var API    = new Manager();
     API.addSettings('rtl', true);
     // API.setName('taskNameTest');
-    init_data_pipe(API, 'qH8i5g1AMmBd', 'csv');
+    init_data_pipe(API, 'qH8i5g1AMmBd', 'csv', true);
     // init_data_pipe(API, 'qH8i5g1AMmBd', 'csv');
     // var APIglobal = API.getGlobal(); 
 
