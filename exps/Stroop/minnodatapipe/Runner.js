@@ -1,4 +1,4 @@
-define(['managerAPI', 'dataPipe.js'], function(Manager){
+define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe/datapipe.min.js'], function(Manager){
 
 	var API    = new Manager();
     API.addSettings('rtl', true);
