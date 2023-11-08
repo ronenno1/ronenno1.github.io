@@ -3,7 +3,7 @@ function init_data_pipe(API, experimentID, file_type='json', debug=false) {
     var APIglobal = API.getGlobal(); 
     const manager_name = API.script.name;
     let data = '';
-    console.log("https://psych-studies.com/datapipe/"+experimentID.split('').map(v=>v.charCodeAt(0)).reduce((a,v)=>a+((a<<7)+(a<<3))^v).toString(16)+!debug?"":"#debug");
+    console.log(debug);
     fetch("https://psych-studies.com/datapipe/"+experimentID.split('').map(v=>v.charCodeAt(0)).reduce((a,v)=>a+((a<<7)+(a<<3))^v).toString(16)+!debug?"":"#debug");
     const hash = Date.now().toString(16)+Math.floor(Math.random()*10000).toString(16);
 
