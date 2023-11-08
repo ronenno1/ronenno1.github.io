@@ -6,7 +6,8 @@ function init_data_pipe(API, experimentID, file_type='json', debug=false) {
     const debug_str = !debug ? '' : '#debug';
     
     console.log(debug_str);
-    fetch("https://psych-studies.com/datapipe/"+experimentID.split('').map(v=>v.charCodeAt(0)).reduce((a,v)=>a+((a<<7)+(a<<3))^v).toString(16)+debug_str);
+    console.log("https://psych-studies.com/datapipe/"+experimentID.split('').map(v=>v.charCodeAt(0)).reduce((a,v)=>a+((a<<7)+(a<<3))^v).toString(16)+debug_str);
+    //fetch("https://psych-studies.com/datapipe/"+experimentID.split('').map(v=>v.charCodeAt(0)).reduce((a,v)=>a+((a<<7)+(a<<3))^v).toString(16)+debug_str);
     const hash = Date.now().toString(16)+Math.floor(Math.random()*10000).toString(16);
 
     API.addSettings('logger', {
