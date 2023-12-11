@@ -1,10 +1,10 @@
 define(['managerAPI',
 'minno_mesh.js',
 'https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js',
-'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js',
-'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe/datapipe.min.js'], function(Manager, minno_mesh, facemesh, facemesh2){
+'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js'], function(Manager, minno_mesh, facemesh, facemesh2){
 
 
+// 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe/datapipe.min.js'
 
     const url = window.location.href;
     const url_parts = url.split('/');
@@ -13,7 +13,7 @@ define(['managerAPI',
     
 
 	var API    = new Manager();
-    init_data_pipe(API, 'qH8i5g1AMmBd', 'csv', true);
+  //  init_data_pipe(API, 'qH8i5g1AMmBd', 'csv', true);
 
     var instStyle = "font-size:20px; text-align:middle;  margin-right:10px; font-family:arial";
     
