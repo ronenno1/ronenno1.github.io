@@ -22,7 +22,11 @@ define(['managerAPI',
     var stims = ['imgs/Stroop/1_1.bmp', 'imgs/Stroop/1_2.bmp', 'imgs/Stroop/2_1.bmp', 'imgs/Stroop/2_2.bmp', 'imgs/Stroop/3_1.bmp', 'imgs/Stroop/3_2.bmp'];
     
     API.addSettings('preloadImages', stims);
+	console.log('test');
+
     global.init_minno_mesh = init_minno_mesh;
+		console.log('test2');
+
     global.keys =  API.shuffle(['i', 'e']),
 
     global.mins = 10;
@@ -164,6 +168,5 @@ define(['managerAPI',
         {inherit: 'redirect'}
         
 	]);
-	console.log('test');
 	return API.script;
 });
