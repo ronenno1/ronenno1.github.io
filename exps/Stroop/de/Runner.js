@@ -164,6 +164,6 @@ define(['managerAPI',
         {inherit: 'redirect'}
         
 	]);
-	
+	console.log('test');
 	return API.script;
 });
