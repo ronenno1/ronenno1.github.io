@@ -1,7 +1,8 @@
-define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe/datapipe.min.js',
+define(['managerAPI',
 'minno_mesh.js',
 'https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js',
-'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js'], function(Manager, minno_mesh, facemesh, facemesh2){
+'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js',
+'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe/datapipe.min.js'], function(Manager, minno_mesh, facemesh, facemesh2){
 
 
 
