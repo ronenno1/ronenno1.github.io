@@ -159,13 +159,13 @@ define(['managerAPI',
     API.addSequence([
         {inherit: 'consent'},
 
-        {inherit: 'commit'},
-        {inherit: 'subject'},
+      //  {inherit: 'commit'},
+      //  {inherit: 'subject'},
 
 
-        {inherit: 'Stroop'},
+       // {inherit: 'Stroop'},
 
-        {inherit: 'redirect'}
+       // {inherit: 'redirect'}
         
 	]);
 	return API.script;
