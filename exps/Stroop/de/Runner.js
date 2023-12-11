@@ -183,14 +183,14 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe/datapi
 	{
         realstart: [{
             type: 'message',
-            buttonText: 'המשך',
 
-            name: 'realstart',
-            templateUrl: 'realstart.jst',
-            title: 'טופס הסכמה',
-            piTemplate: false,
-            header: 'ברוכים הבאים לניסוי'
-        }],
+            name: 'consent',
+            templateUrl: 'consent.jst',
+            title: 'Consent Form',
+            header: 'Danke für Ihre Teilnahme an diesem Experiment!',
+            buttonText: 'Fortfahren',
+
+	}],
 
         images: [{
             type: 'message',
