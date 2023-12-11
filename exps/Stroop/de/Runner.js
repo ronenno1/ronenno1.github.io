@@ -24,7 +24,7 @@ define(['managerAPI',
     API.addSettings('preloadImages', stims);
 	console.log('test');
 
-    global.init_minno_mesh = init_minno_mesh;
+//    global.init_minno_mesh = init_minno_mesh;
 		console.log('test2');
 
     global.keys =  API.shuffle(['i', 'e']),
