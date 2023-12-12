@@ -113,7 +113,7 @@ function parse_data(results) {
 
                 // canvasCtx.fillText(ratio2, global.full_canvas.width/2, global.full_canvas.height/2);
 
-                global.eye_data.push({t: new Date().getTime(), eye_sizes, oval_size, ratio2});
+                global.eye_data.push({t: new Date().getTime(), ratio2});
 
                 if (landmarks[33].x<0.31 || landmarks[263].x>0.69 || 
                     landmarks[33].y<0.21 || landmarks[263].y<0.21 ||
