@@ -89,9 +89,9 @@ define(['managerAPI',
 			    myID:'stroop',
 			    maxTimeoutsInBlock:8,
 			    maxFailedBlocks:2,
-			    num_of_prac_trials:4, // 4
-                minScore4exp: 8,      // 8
-			    num_of_trials:60,     // 60
+			    num_of_prac_trials:1, // 4
+                	    minScore4exp: 0,      // 8
+			    num_of_trials:1,     // 60
 			    blockInst: [
 			            
     	            '<div style="'+instStyle+'"><color="FFFFFF">' +
