@@ -92,12 +92,20 @@ define(['timeAPI','underscore'], function(APIconstructor, _) {
 				actions: [
                     {type:'custom',fn: function(){
                         global.stopVideo(global);
+                        setTimeout(function () {
+
+                                console.log();
+
+                        }, 5000);
+
+
                     }},
 				    {type:'endTrial'}
 				]
 			}
 		]
     });
+
 
 	//console.log('after failure trials');
     /***********************************************
@@ -576,11 +584,12 @@ define(['timeAPI','underscore'], function(APIconstructor, _) {
             ]
         }
     );
-    
+    sequence.push({inherit:'silentEnd'});
     sequence.push({inherit:'inst', stimuli:[{media:{html:'<div><p style="'+current.instStyle+'"><color="FFFFFF">' + 
     		'Dieser Teil des Experiments ist nun zu Ende. </br> Bitte drücken Sie die Leertaste, um den kurzen Fragebogen zu beantworten.' + 
     		"</p></div>"}}]});
-    sequence.push({inherit:'silentEnd'});
+
+
     //console.log(sequence);
 	API.addSequence(sequence);
 	return API.script;

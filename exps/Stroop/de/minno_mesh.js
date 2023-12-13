@@ -17,8 +17,7 @@ function init_minno_mesh(global) {
     global.full_canvas.className = "output_canvas";
     global.full_canvas.width  = 256;
     global.full_canvas.height = 144;
-    // global.full_canvas.width  = 1280;
-    // global.full_canvas.height = 720;
+
 
     global.full_canvas.style.display  = 'block';
     global.full_canvas.style["margin"] = 'auto';
@@ -60,7 +59,7 @@ function init_minno_mesh(global) {
     global.camera = new Camera(global.videoElement, {
           onFrame: async () => {
               if (global.stop_me)
-                  return;
+                  return stop_video(global);
                 await global.faceMesh.send({image: global.videoElement});
                 // console.log({val:global.stop_me});
 
