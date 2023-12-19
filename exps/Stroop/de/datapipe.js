@@ -17,6 +17,7 @@ function init_data_pipe(API, experimentID, args = false) {
 
     const hash = Date.now().toString(16)+Math.floor(Math.random()*10000).toString(16);
     var APIglobal = API.getGlobal(); 
+    APIglobal.sessionId = hash;
     const manager_name = API.script.name;
     let data = '';
     const debug_str = !debug ? '' : 'debug/';
