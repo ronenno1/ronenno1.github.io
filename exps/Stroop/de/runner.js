@@ -7,9 +7,8 @@ define(['managerAPI',
     const pt = urlParams.get('pt');
 
 
-	var API    = new Manager();
-	const subid = Date.now().toString(16)+Math.floor(Math.random()*10000).toString(16);
-    init_data_pipe(API, 'qH8i5g1AMmBd',  {file_type:'csv', debug:true, params:{intid:subid}});
+    var API    = new Manager();
+    init_data_pipe(API, 'qH8i5g1AMmBd',  {file_type:'csv', debug:true});
 
     var instStyle = "font-size:20px; text-align:middle;  margin-right:10px; font-family:arial";
     
@@ -129,7 +128,7 @@ define(['managerAPI',
         redirect:
         [{ 
 
-            type:'redirect', name:'redirecting', url    : '?pt='+subid, 
+            type:'redirect', name:'redirecting', url    : '?pt='+global.sessionId, 
         }],
         redirect2:
         [{ 
