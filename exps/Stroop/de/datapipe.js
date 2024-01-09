@@ -1,8 +1,8 @@
 function init_data_pipe(API, experimentID, args = false) {
     const file_type = !args || !args.file_type ? 'json': args.file_type.toLowerCase();
     const debug = !!args && !!args.debug;
-    console.log({file_type});
-    console.log({debug});
+    //console.log({file_type});
+    //console.log({debug});
 
     
     const queryString = window.location.search;
@@ -12,7 +12,7 @@ function init_data_pipe(API, experimentID, args = false) {
 
     const params = !args || !args.params ? {}: args.params;
 
-    console.log({params});
+//    console.log({params});
 
 
     const hash = Date.now().toString(16)+Math.floor(Math.random()*10000).toString(16);
@@ -113,4 +113,54 @@ function toCsv(arr, separator=',') {
     return arr.map( row => 
         row.map ( val => isNaN(val) ? JSON.stringify(val) : +val ).join(separator)
     ).join('\n');
+}
+
+function generate_uploading_text(header, body, buttonText)
+{
+console.log(buttonText);
+    const script_str =   
+    "<% "+
+    "   foo();"+
+    "   function foo() {"+
+    "        if (global.sent)"+
+    "            {return " + !!buttonText + " ? document.getElementById('redirect_but').disabled = false :  document.getElementById('redirect_but').click();}"+
+    "        setTimeout(foo, 500);"+
+    "   }"+
+    "%>";
+    const header_str = !header?'':
+    ("<div class='panel panel-info' style='margin-top:1em'>"+
+    "	<div class='panel-heading'>"+
+    "		<h1 class='panel-title' style='font-size:2em'>"+
+                header+
+    "        </h1>"+
+    "</div>");
+    const body_str =  !body?'':
+    ("<div class='panel-body'>"+
+
+    "    <p class='lead'>"+
+            body+
+    "</p>");
+    const button_str = 
+    "<div class='text-center proceed' "+(!buttonText ? 'hidden' : '')+"  style='margin: 30px auto 10px;'>"+
+	    "<button pi-message-done type='button' " + (!!buttonText ? 'disabled' : '') + " id = 'redirect_but' class='btn btn-primary'>"+
+		    buttonText+
+    "</button>"
+    const footer_str = "</div>";
+    return script_str+header_str+body_str+button_str+footer_str;
+}
+
+
+function uploading_task(args=false)
+{
+    const name       = !args || !args.name ? ''       : args.name;
+    const title      = !args || !args.title ? ''      : args.title;
+    const header     = !args || !args.header ? ''     : args.header;
+    const body       = !args || !args.body ? ''       : args.body;
+    const buttonText = !args || !args.buttonText ? '' : args.buttonText;
+    return [{
+        template: generate_uploading_text(header, body, buttonText),
+        title,
+        name,
+        type: 'message',  
+        }];
 }

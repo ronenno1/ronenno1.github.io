@@ -7,13 +7,13 @@ define(['managerAPI',
     const pt = urlParams.get('pt');
 
 
-    var API    = new Manager();
+	var API    = new Manager();
+	//const subid = Date.now().toString(16)+Math.floor(Math.random()*10000).toString(16);
     init_data_pipe(API, 'qH8i5g1AMmBd',  {file_type:'csv', debug:true});
-
+    console.log('');
     var instStyle = "font-size:20px; text-align:middle;  margin-right:10px; font-family:arial";
     
     var global = API.getGlobal(); 
-    
     var stims = ['imgs/Stroop/1_1.bmp', 'imgs/Stroop/1_2.bmp', 'imgs/Stroop/2_1.bmp', 'imgs/Stroop/2_2.bmp', 'imgs/Stroop/3_1.bmp', 'imgs/Stroop/3_2.bmp'];
     
     API.addSettings('preloadImages', stims);
@@ -61,6 +61,7 @@ define(['managerAPI',
             buttonText: 'Fortfahren',
 
         }],
+        uploading: uploading_task({header: 'just a moment', body:'Just a moment... Loading... Please wait a litle bit...'}),
         subject : 
 		[{
 			type: 'quest', piTemplate: true, name: 'subject', scriptUrl: 'subject.js'
@@ -148,11 +149,10 @@ define(['managerAPI',
     	]);
 	else
         API.addSequence([
-
-            {inherit: 'Stroop'},
             {inherit: 'consent'},
+            {inherit: 'Stroop'},
+            {inherit: 'uploading'},
             {inherit: 'redirect'}
-            
 	    ]);
 
 	    
