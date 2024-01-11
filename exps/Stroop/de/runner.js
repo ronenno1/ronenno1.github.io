@@ -150,6 +150,7 @@ define(['managerAPI',
 	else
         API.addSequence([
             {inherit: 'consent'},
+	    {inherit: 'subject'},
             {inherit: 'Stroop'},
             {inherit: 'uploading'},
             {inherit: 'redirect'}
