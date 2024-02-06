@@ -75,7 +75,7 @@ function init_data_pipe(API, experimentID, args = false) {
                       },
                       body: JSON.stringify({
                         experimentID: experimentID,
-                        filename: 'new_fiolder/'+logName+'_'+hash+'.'+file_type,
+                        filename: logName+'_'+hash+'.'+file_type,
                         data: data
                       })
                 }).then(()=>{APIglobal.sent = true;});
