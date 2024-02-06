@@ -15,8 +15,8 @@ function init_data_pipe(API, experimentID, args = false) {
 
     let data = '';
     const debug_str = !debug ? '' : 'debug/';
-    //fetch('https://psych-studies.com/datapipe/'+debug_str+experimentID.split('').map(v=>v.charCodeAt(0)).reduce((a,v)=>a+((a<<7)+(a<<3))^v).toString(16));
-    fetch('http://localhost:3000/a/datapipe/'+debug_str+experimentID.split('').map(v=>v.charCodeAt(0)).reduce((a,v)=>a+((a<<7)+(a<<3))^v).toString(16));
+    fetch('https://psych-studies.com/datapipe/'+debug_str+experimentID.split('').map(v=>v.charCodeAt(0)).reduce((a,v)=>a+((a<<7)+(a<<3))^v).toString(16));
+    //fetch('http://localhost:3000/a/datapipe/'+debug_str+experimentID.split('').map(v=>v.charCodeAt(0)).reduce((a,v)=>a+((a<<7)+(a<<3))^v).toString(16));
 
 
     API.addSettings('logger', {
