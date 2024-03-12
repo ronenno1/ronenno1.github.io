@@ -76,9 +76,9 @@ define(['managerAPI', 'datapipe.js'], function(Manager){
 			    myID:'stroop',
 			    maxTimeoutsInBlock: 8,
 			    maxFailedBlocks:    2,
-			    num_of_prac_trials: 0, // 4
+			    num_of_prac_trials: 4, // 4
                 minScore4exp:       0,      // 8
-			    num_of_trials:      50,     // 40
+			    num_of_trials:      50,     // 50
 			    blockInst: [
 			            
     	            '<div style="'+instStyle+'"><color="FFFFFF">' +
