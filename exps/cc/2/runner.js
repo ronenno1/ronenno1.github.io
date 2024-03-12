@@ -77,8 +77,8 @@ define(['managerAPI', 'datapipe.js'], function(Manager){
 			    maxTimeoutsInBlock: 8,
 			    maxFailedBlocks:    2,
 			    num_of_prac_trials: 4, // 4
-                minScore4exp:       0,      // 8
-			    num_of_trials:      50,     // 50
+                	    minScore4exp:       8,      // 8
+			    num_of_trials:      40,     // 50
 			    blockInst: [
 			            
     	            '<div style="'+instStyle+'"><color="FFFFFF">' +
