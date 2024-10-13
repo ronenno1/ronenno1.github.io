@@ -332,33 +332,6 @@ define(['pipAPI'], function(APIconstructor) {
 					mixer: 'repeat',
 					times: current.num_of_trials,
 					data: [
-                        {inherit:{set:'cong', type:'equalDistribution', n: current.num_of_trials*3, seed: 'congE'}, data:{block: 'exp'}}
-					]
-				},
-				{
-					mixer: 'repeat',
-					times: current.num_of_trials,
-					data: [
-                        {inherit:{set:'incong', type:'equalDistribution', n: current.num_of_trials*3, seed: 'incongE'}, data:{block: 'exp'}}
-					]
-				},
-				{
-					mixer: 'repeat',
-					times: current.num_of_trials,
-					data: [
-                        {inherit:{set:'neu', type:'equalDistribution', n: current.num_of_trials*3, seed: 'neuE'}, data:{block: 'exp'}}
-					]
-				}
-			]
-		},		
-		{inherit: {set:"inst_rest"}},
-	    {
-			mixer: 'random',
-			data: [
-				{
-					mixer: 'repeat',
-					times: current.num_of_trials,
-					data: [
                         {inherit:{set:'cong', type:'equalDistribution', n: current.num_of_trials*3, seed: 'congE2'}, data:{block: 'exp'}}
 					]
 				},
