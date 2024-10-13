@@ -502,47 +502,6 @@ define(['timeAPI','underscore'], function(APIconstructor, _) {
         					mixer: 'repeat',
         					times: current.num_of_trials,
         					data: [
-                                {inherit:{set:'cong', type:'equalDistribution', n: current.num_of_trials, seed: 'cong_E'}, data:{block: 'exp'}}
-        					]
-        				},
-        				{
-        					mixer: 'repeat',
-        					times: current.num_of_trials,
-        					data: [
-                                {inherit:{set:'incong', type:'equalDistribution', n: current.num_of_trials, seed: 'incong_E'}, data:{block: 'exp'}}
-        					]
-        				},
-        				
-        				{
-        					mixer: 'repeat',
-        					times: current.num_of_trials,
-        					data: [
-                                {inherit:{set:'neu', type:'equalDistribution', n: current.num_of_trials, seed: 'neutral_E'}, data:{block: 'exp'}}
-        					]
-        				}
-        			]
-        		}
-            ]
-        },
-
-	    
-		{
-		    inherit: {set:"inst", merge:['stimuli']}, 
-		    stimuli:[{media:{html:current.blockInst[2]}, location:{top:'113px'}}]
-		},
-		
-		
-		{
-            mixer:'wrapper',
-            data : [
-               
-                 {
-        			mixer: 'random',
-        			data: [
-        				{
-        					mixer: 'repeat',
-        					times: current.num_of_trials,
-        					data: [
                                 {inherit:{set:'cong', type:'equalDistribution', n: current.num_of_trials, seed: 'cong_E2'}, data:{block: 'exp'}}
         					]
         				},
