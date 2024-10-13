@@ -85,7 +85,6 @@ define(['pipAPI'], function(APIconstructor) {
             { 
                 conditions: [{type:'inputEquals',value:'space'}], 
                 actions: [
-                    {type:'log'}, 
                     {type:'endTrial'}				
                 ]
             }
