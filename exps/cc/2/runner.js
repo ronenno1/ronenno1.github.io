@@ -73,7 +73,7 @@ define(['managerAPI', 'datapipe.js'], function(Manager){
 		[{
 			type: 'time', name: 'Stroop', scriptUrl: 'Stroop.js' , 
 			current: {
-			    myID:'stroop',
+			    myID:'01_stroop',
 			    maxTimeoutsInBlock: 8,
 			    maxFailedBlocks:    2,
 			    num_of_prac_trials: 4, // 4
