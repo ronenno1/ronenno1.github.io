@@ -49,7 +49,7 @@ define(['managerAPI', 'datapipe.js'], function(Manager){
 
         SICE :
 		[{
-			type: 'time', name: 'SICE', scriptUrl: 'SICE.js' , 
+			type: 'time', name: '02_SICE', scriptUrl: 'SICE.js' , 
 			current: {
 			    myID:'SICE',
 			    maxTimeoutsInBlock: 8,
