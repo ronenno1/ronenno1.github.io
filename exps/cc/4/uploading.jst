@@ -1,0 +1,72 @@
+<%
+foo();
+function foo() {
+        //console.log({check: global.sent});
+        if (global.sent){
+            //return document.getElementById("buti").style.display = 'block';
+            document.getElementById("the_but").click();
+        }
+        setTimeout(foo, 500);
+}
+%>
+
+
+
+<div class="panel panel-info" style="margin-top:1em">
+	<div class="panel-heading">
+		<h1 class="panel-title" style="font-size:2em">
+            Danke für Ihre Teilnahme an diesem Experiment
+        </h1>
+</div>
+<div class="panel-body">
+
+    <p class='lead'>
+        Während des Experiments sehen Sie verschiedene Stimuli, auf die sie so korrekt und schnell als möglich reagieren sollen.<br>
+        <strong>
+            Das Experiment soll nur auf einem PC durchgeführt werden (nicht auf einem Tablet oder Smart-Phone).<br>
+        </strong>
+        Zudem ist es wichtig, dass Sie das Experiment in einem ruhigen Raum ohne Ablenkung durchführen (bitte stellen Sie auch Ihr Handy auf lautlos).
+        <br><br>
+        
+        In diesem Experiment werden wir Ihre Webcam nutzen um Ihre Augenbewegungen zu messen. Dafür bitten wir Sie Ihre Webcam einzuschalten.<br/><br/>
+
+        </br>
+        Das Programm funktioniert leider nur ohne Brille, wenn Sie eine Brille tragen und die möglichkeit haben Ihre Brille abzusetzen können Sie gerne ohne Brille fortfahren.
+        </br>
+        <b>Ihr Bild wird dabei nicht übertragen oder aufgezeichnet. </b> 
+
+        Das Programm wird Ihre Augenbewegungen automatisch erfassen ohne Videomaterial von der Webcam abzuspeichern. 
+
+        <br/><br/>
+        
+        Falls Sie nicht in der Lage Sind Ihre Webcam für diese Studie zu nutzen, können Sie leider nicht am Experiment teilnehmen und somit keine Aufwandsentschadigung bekommen.
+        
+        
+        <br/>
+        Die Erfassung von Augenbewegungen klappt nicht immer. Die Automatische Erfassung hängt auch von Ihrer Webcam-Quälitat und Ihrem Computer ab.
+        Falls die Erfassung der Augenbewegungen nicht funktioniert, können Sie das Experiment leider nicht abschließen und somit keine Aufwandsentschadigung bekommen. 
+
+
+        
+        <br><br>
+
+    
+        Das Experiment besteht aus einem Testdurchlauf und einem kurzen Fragebogen und dauert insgesamt ca 30 Minuten.
+    
+        <br><br>
+        Wenn Sie nun die Taste „weiter“ drücken, stimmen Sie der Teilnahme an diesem Experiment zu.
+    
+        
+        <br/><br/>
+        Die Teilnahme an diesem Experiment ist freiwillig und Sie können Ihre Teilnahme jederzeit mit dem schließen des Browserfensters beenden.
+        Kontaktieren Sie R. Hershman, (<a href="mailto:Ronen.Hershman@uibk.ac.at">Ronen.Hershman@uibk.ac.at</a>) bei allfällingen Fragen zur Studie.<p>
+        </p>
+
+	    <div class="text-center proceed" id = 'buti' hidden="hidden" style="margin: 30px auto 10px;">
+		    <button pi-message-done type="button" id = 'the_but' class="btn btn-primary">
+			    Fortfahren
+		    </button>
+	    </div>
+
+</div>
+
