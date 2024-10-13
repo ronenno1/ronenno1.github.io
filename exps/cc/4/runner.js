@@ -47,7 +47,7 @@ define(['managerAPI', 'datapipe.js'], function(Manager){
 
         flanker :
 		[{
-			type: 'time', name: 'flanker', scriptUrl: 'flanker.js' , 
+			type: 'time', name: '03_Flanker', scriptUrl: 'flanker.js' , 
 			current: {
 			    myID:'flanker',
 			    maxTimeoutsInBlock: 8,
