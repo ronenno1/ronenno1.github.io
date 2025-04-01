@@ -13,7 +13,16 @@ define(['managerAPI', 'datapipe.js'], function(Manager){
 		[{
 			type: 'quest', piTemplate: true, name: 'subject', scriptUrl: 'subject.js'
 		}],        
+{
+      type: 'message',
+      keys: ' ',
+      template:
+        '<div class="panel panel-info" style="margin-top:1em">' +
 
+          'Your answer was detected! Thank you!' +
+
+        '</div>'
+    }
 
            
 	});
