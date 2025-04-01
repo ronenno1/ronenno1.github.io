@@ -12,13 +12,12 @@ define(['questAPI'], function(Quest){
                     required: true,
                     errorMsg: {
                         required: 'Bitte beantworten Sie diese Fragen'
-                    }
-                },
-                    onSubmit: function(log, current){
-                        
-                            window.piGlobal.name = log.response;
-                        
                     },
+                    onSubmit: function(log, current){
+                        window.piGlobal.name = log.response;
+                    },
+                }
+                    
                 
                 // question ends
             ]
