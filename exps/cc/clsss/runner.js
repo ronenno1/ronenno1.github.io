@@ -13,7 +13,7 @@ define(['managerAPI', 'datapipe.js'], function(Manager){
 		[{
 			type: 'quest', piTemplate: true, name: 'subject', scriptUrl: 'subject.js'
 		}],        
-{
+bye : [{
       type: 'message',
       keys: ' ',
       template:
@@ -22,14 +22,16 @@ define(['managerAPI', 'datapipe.js'], function(Manager){
           'Your answer was detected! Thank you <b> <%= window.piGlobal.name%></b>!' +
 
         '</div>'
-    }
+    }]
 
            
 	});
 
 
         API.addSequence([
-            {inherit: 'subject'}
+            {inherit: 'subject'},
+            {inherit: 'bye'},
+
 	    ]);
 
 	    
