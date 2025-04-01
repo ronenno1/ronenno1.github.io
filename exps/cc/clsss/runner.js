@@ -19,7 +19,7 @@ define(['managerAPI', 'datapipe.js'], function(Manager){
       template:
         '<div class="panel panel-info" style="margin-top:1em">' +
 
-          'Your answer was detected! Thank you!' +
+          'Your answer was detected! Thank you <b> <%= window.piGlobal.name%></b>!' +
 
         '</div>'
     }
