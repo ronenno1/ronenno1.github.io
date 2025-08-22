@@ -2,24 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Shuffle Card</title>
+    <title>Shuffle 24 Cards</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            width: 100vw;
             margin: 0;
-            background: #f8f8f8;
+            background: #FFFFFF;
+            overflow: hidden;
+            color: black;
+            font-family: Arial, sans-serif;
         }
-        img {
-            max-width: 100%;
-            max-height: 100%;
+        img, .game-over {
+            max-width: 60%;
+            max-height: 80%;
             cursor: pointer;
             transition: transform 0.2s ease-in-out;
+            object-fit: contain;
         }
         img:active {
-            transform: scale(0.95);
+            transform: scale(0.98);
+        }
+        .game-over {
+            font-size: 3em;
+            cursor: default;
+        }
+        /* 📱 On smartphones (≤768px) → make image fullscreen */
+        @media (max-width: 768px) {
+            img, .game-over {
+                max-width: 150vw;
+                max-height: 150vh;
+                font-size: 2.5em;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -42,24 +60,38 @@
 
         const card = document.getElementById("card");
 
-        // Show a random card at first load
-        function setRandomCard() {
-            const randomIndex = Math.floor(Math.random() * images.length);
-            card.src = preloaded[randomIndex].src;
-        }
-        setRandomCard();
+        // Shuffle deck order (so we don't repeat)
+        let deck = [...preloaded];
+        deck = deck.sort(() => Math.random() - 0.5);
 
-        // Shuffle effect on click
+        let currentIndex = 0;
+
+        // Show first random card
+        card.src = deck[currentIndex].src;
+
         card.addEventListener("click", () => {
+            if (currentIndex >= deck.length - 1) {
+                // Last card shown → replace with "Game Over"
+                card.remove();
+                const gameOverMsg = document.createElement("div");
+                gameOverMsg.className = "game-over";
+                gameOverMsg.textContent = "GAME OVER";
+                document.body.appendChild(gameOverMsg);
+                return;
+            }
+
+            // Shuffle effect before next card
             let shuffleCount = 0;
             const maxShuffles = 10;
             const interval = setInterval(() => {
-                const randomIndex = Math.floor(Math.random() * images.length);
-                card.src = preloaded[randomIndex].src;
+                const randomIndex = Math.floor(Math.random() * deck.length);
+                card.src = deck[randomIndex].src;
 
                 shuffleCount++;
                 if (shuffleCount >= maxShuffles) {
                     clearInterval(interval);
+                    currentIndex++;
+                    card.src = deck[currentIndex].src; // Show next unique card
                 }
             }, 50);
         });
