@@ -27,10 +27,18 @@
     <img id="card" src="x1.png" alt="Card">
 
     <script>
-        // Build the list of image filenames
         const images = [];
+        const preloaded = [];
+
+        // Build list of filenames
         for (let i = 1; i <= 24; i++) {
-            images.push(`x${i}.png`);
+            const filename = `x${i}.png`;
+            images.push(filename);
+
+            // Preload into memory
+            const img = new Image();
+            img.src = filename;
+            preloaded.push(img);
         }
 
         const card = document.getElementById("card");
@@ -40,15 +48,14 @@
             const maxShuffles = 10;
             const interval = setInterval(() => {
                 const randomIndex = Math.floor(Math.random() * images.length);
-                card.src = images[randomIndex];
+                card.src = preloaded[randomIndex].src; // use preloaded src
 
                 shuffleCount++;
                 if (shuffleCount >= maxShuffles) {
                     clearInterval(interval);
                 }
-            }, 20); // 150ms per shuffle
+            }, 50);
         });
     </script>
 </body>
 </html>
-
