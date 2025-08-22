@@ -1,100 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Shuffle 24 Cards</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            width: 100vw;
-            margin: 0;
-            background: #FFFFFF;
-            overflow: hidden;
-            color: black;
-            font-family: Arial, sans-serif;
-        }
-        img, .game-over {
-            max-width: 60%;
-            max-height: 80%;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
-            object-fit: contain;
-        }
-        img:active {
-            transform: scale(0.98);
-        }
-        .game-over {
-            font-size: 3em;
-            cursor: default;
-        }
-        /* 📱 On smartphones (≤768px) → make image fullscreen */
-        @media (max-width: 768px) {
-            img, .game-over {
-                max-width: 150vw;
-                max-height: 150vh;
-                font-size: 2.5em;
-                text-align: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Shuffle 24 Cards</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; width: 100vw; margin: 0;
+      background: #fff; color: #000; font-family: system-ui, Arial, sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+    .round {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.5px;
+      opacity: 0.9;
+    }
+    img, .game-over {
+
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+      object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    img:active { transform: scale(0.98); }
+    .game-over {
+      font-size: 3rem;
+      cursor: default;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+    }
+    button:hover { background: #444; }
+
+    /* 📱 Smartphones (≤768px): fullscreen image/text */
+    @media (max-width: 768px) {
+      img, .game-over { max-width: 100vw; max-height: 100vh; }
+      .round { font-size: 1.1rem; margin-bottom: 0.5rem; }
+      .game-over { font-size: 2.5rem; padding: 0 1rem; }
+    }
+  </style>
 </head>
 <body>
-    <img id="card" src="" alt="Card">
+  <div id="round" class="round">Round: —/24</div>
+  <img id="card" src="" alt="Card" />
 
-    <script>
-        const images = [];
-        const preloaded = [];
+  <script>
+    const TOTAL = 24;
+    const filenames = Array.from({ length: TOTAL }, (_, i) => `x${i + 1}.png`);
 
-        // Build list of filenames and preload them
-        for (let i = 1; i <= 24; i++) {
-            const filename = `x${i}.png`;
-            images.push(filename);
+    // Preload
+    const deckImages = filenames.map(src => {
+      const img = new Image();
+      img.src = src;
+      return img;
+    });
 
-            const img = new Image();
-            img.src = filename;
-            preloaded.push(img);
+    let deck = [];
+    let currentIndex = 0;
+    let isShuffling = false;
+    let gameOverPending = false;
+
+    let roundEl = document.getElementById('round');
+    let cardEl = document.getElementById('card');
+
+    function shuffleDeck() {
+      deck = Array.from({ length: TOTAL }, (_, i) => i)
+        .sort(() => Math.random() - 0.5);
+      currentIndex = 0;
+      gameOverPending = false;
+    }
+
+    function updateRoundLabel() {
+      roundEl.textContent = `Round: ${Math.min(currentIndex + 1, TOTAL)}/${TOTAL}`;
+    }
+
+    function showCard(index) {
+      cardEl.src = deckImages[deck[index]].src;
+    }
+
+    function showGameOver() {
+      cardEl.remove();
+      roundEl.remove();
+
+      const over = document.createElement("div");
+      over.className = "game-over";
+      over.textContent = "GAME OVER";
+
+      const btn = document.createElement("button");
+      btn.textContent = "Play Again";
+      btn.addEventListener("click", restartGame);
+
+      document.body.appendChild(over);
+      document.body.appendChild(btn);
+    }
+
+    function restartGame() {
+      document.body.innerHTML = `
+        <div id="round" class="round">Round: —/24</div>
+        <img id="card" src="" alt="Card" />
+      `;
+      roundEl = document.getElementById('round');
+      cardEl = document.getElementById('card');
+      initGame();
+    }
+
+    function initGame() {
+      shuffleDeck();
+      showCard(currentIndex);
+      updateRoundLabel();
+
+      cardEl.addEventListener("click", () => {
+        if (isShuffling) return;
+
+        if (gameOverPending) {
+          showGameOver();
+          return;
         }
 
-        const card = document.getElementById("card");
+        if (currentIndex >= TOTAL - 1) {
+          // Last card already shown → wait for next click to end
+          gameOverPending = true;
+          return;
+        }
 
-        // Shuffle deck order (so we don't repeat)
-        let deck = [...preloaded];
-        deck = deck.sort(() => Math.random() - 0.5);
+        isShuffling = true;
+        let shuffleCount = 0;
+        const maxShuffles = 10;
+        const interval = setInterval(() => {
+          const randomIndex = Math.floor(Math.random() * TOTAL);
+          cardEl.src = deckImages[randomIndex].src;
 
-        let currentIndex = 0;
+          shuffleCount++;
+          if (shuffleCount >= maxShuffles) {
+            clearInterval(interval);
+            currentIndex++;
+            showCard(currentIndex);
+            updateRoundLabel();
+            isShuffling = false;
 
-        // Show first random card
-        card.src = deck[currentIndex].src;
-
-        card.addEventListener("click", () => {
-            if (currentIndex >= deck.length - 1) {
-                // Last card shown → replace with "Game Over"
-                card.remove();
-                const gameOverMsg = document.createElement("div");
-                gameOverMsg.className = "game-over";
-                gameOverMsg.textContent = "GAME OVER";
-                document.body.appendChild(gameOverMsg);
-                return;
+            if (currentIndex === TOTAL - 1) {
+              // after last card → require one more click for game over
+              gameOverPending = true;
             }
+          }
+        }, 50); // 🔥 shuffle speed
+      });
+    }
 
-            // Shuffle effect before next card
-            let shuffleCount = 0;
-            const maxShuffles = 10;
-            const interval = setInterval(() => {
-                const randomIndex = Math.floor(Math.random() * deck.length);
-                card.src = deck[randomIndex].src;
-
-                shuffleCount++;
-                if (shuffleCount >= maxShuffles) {
-                    clearInterval(interval);
-                    currentIndex++;
-                    card.src = deck[currentIndex].src; // Show next unique card
-                }
-            }, 50);
-        });
-    </script>
+    initGame();
+  </script>
 </body>
 </html>
