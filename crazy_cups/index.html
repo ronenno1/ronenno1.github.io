@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shuffle Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f8f8f8;
+        }
+        img {
+            max-width: 60%;
+            max-height: 80%;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        img:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <img id="card" src="x1.png" alt="Card">
+
+    <script>
+        // Build the list of image filenames
+        const images = [];
+        for (let i = 1; i <= 24; i++) {
+            images.push(`x${i}.png`);
+        }
+
+        const card = document.getElementById("card");
+
+        card.addEventListener("click", () => {
+            let shuffleCount = 0;
+            const maxShuffles = 10;
+            const interval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * images.length);
+                card.src = images[randomIndex];
+
+                shuffleCount++;
+                if (shuffleCount >= maxShuffles) {
+                    clearInterval(interval);
+                }
+            }, 20); // 150ms per shuffle
+        });
+    </script>
+</body>
+</html>
+
