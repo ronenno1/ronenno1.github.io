@@ -13,8 +13,8 @@
             background: #f8f8f8;
         }
         img {
-            max-width: 60%;
-            max-height: 80%;
+            max-width: 100%;
+            max-height: 100%;
             cursor: pointer;
             transition: transform 0.2s ease-in-out;
         }
@@ -24,18 +24,17 @@
     </style>
 </head>
 <body>
-    <img id="card" src="x1.png" alt="Card">
+    <img id="card" src="" alt="Card">
 
     <script>
         const images = [];
         const preloaded = [];
 
-        // Build list of filenames
+        // Build list of filenames and preload them
         for (let i = 1; i <= 24; i++) {
             const filename = `x${i}.png`;
             images.push(filename);
 
-            // Preload into memory
             const img = new Image();
             img.src = filename;
             preloaded.push(img);
@@ -43,18 +42,26 @@
 
         const card = document.getElementById("card");
 
+        // Show a random card at first load
+        function setRandomCard() {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            card.src = preloaded[randomIndex].src;
+        }
+        setRandomCard();
+
+        // Shuffle effect on click
         card.addEventListener("click", () => {
             let shuffleCount = 0;
             const maxShuffles = 10;
             const interval = setInterval(() => {
                 const randomIndex = Math.floor(Math.random() * images.length);
-                card.src = preloaded[randomIndex].src; // use preloaded src
+                card.src = preloaded[randomIndex].src;
 
                 shuffleCount++;
                 if (shuffleCount >= maxShuffles) {
                     clearInterval(interval);
                 }
-            }, 50);
+            }, 150);
         });
     </script>
 </body>
