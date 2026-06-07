@@ -109,7 +109,7 @@ define(['managerAPI', 'datapipe.js'], function(Manager){
 			    maxFailedBlocks:    2,
 			    num_of_prac_trials: 4,      // 4
                 minScore4exp:       8,      // 8
-			    num_of_trials:      20,     // 40
+			    num_of_trials:      40,     // 40
 			    blockInst: [
 			            
     	            '<div style="'+instStyle+'"><color="FFFFFF">' +
