@@ -11,28 +11,28 @@ define(['pipAPI'], function(APIconstructor) {
         instructions : {
             inst_welcome : '<p>Welcome to the experiment!</p></br>'+
                             '<p>We will show you pairs of digits.</p>'+
-                            '<P>Your task is to judge, as quickly as possible, which digit is numerically larger.</p>'+
-                            '<P>For example, if you see 8 and 2, 8 is the numerically larger digit.</p></br>'+
-                            '<p>If the numerically larger digit appears on the <b>right</b>, hit the <b>i</b> key with your right hand.</p>'+
-                            '<p>If the numerically larger digit appears on the <b>left</b>, hit the <b>e</b> key with your left hand.</p><br>'+
+                            '<P>Your task is to judge, as quickly as possible, which digit is <b>physically</b> larger.</p>'+
+                            '<P>For example, if you see <span style="font-size: 60px;">X</span> and <span style="font-size: 100px;">Y</span>, <b>Y</b> is the <b>physically</b> larger digit.</p></br>'+
+                            '<p>If the physically larger digit appears on the <b>right</b>, hit the <b>i</b> key with your right hand.</p>'+
+                            '<p>If the physically larger digit appears on the <b>left</b>, hit the <b>e</b> key with your left hand.</p><br>'+
                             '<p>Please put your fingers on the keyboard to get ready</p></br>'+
                             '<p>Press SPACE to start a short practice</p>',
             inst_start   :  '<p>The practice has now ended.</p></br>'+
 
-                            '<p>Remember: indicate the numerically larger digit.</p></br>'+
+                            '<p>Remember: indicate the physically larger digit.</p></br>'+
                                 
-                            '<p>If the numerically larger digit appears on the <b>right</b>, hit the <b>i</b> key with your right hand.</p>'+
-                            '<p>If the numerically larger digit appears on the <b>left</b>, hit the <b>e</b> key with your left hand.</p><br>'+
+                            '<p>If the physically larger digit appears on the <b>right</b>, hit the <b>i</b> key with your right hand.</p>'+
+                            '<p>If the physically larger digit appears on the <b>left</b>, hit the <b>e</b> key with your left hand.</p><br>'+
                                 
                             '<p>Please put your fingers on the keyboard to get ready</p></br>'+
                                 
                             '<p>Press SPACE to continue</p>',
             inst_rest   : '<p>A short rest!</p></br>'+
                             '<p>Remember: press on the SPACE, only for <span style="color:green">green</span > items.</p><br>'+
-                            '<p>Remember: indicate the numerically larger digit.</p></br>'+
+                            '<p>Remember: indicate the physically larger digit.</p></br>'+
                                 
-                            '<p>If the numerically larger digit appears on the <b>right</b>, hit the <b>i</b> key with your right hand.</p>'+
-                            '<p>If the numerically larger digit appears on the <b>left</b>, hit the <b>e</b> key with your left hand.</p><br>'+
+                            '<p>If the physically larger digit appears on the <b>right</b>, hit the <b>i</b> key with your right hand.</p>'+
+                            '<p>If the physically larger digit appears on the <b>left</b>, hit the <b>e</b> key with your left hand.</p><br>'+
                                 
                             '<p>Please put your fingers on the keyboard to get ready</p></br>'+
                                 
@@ -267,28 +267,23 @@ define(['pipAPI'], function(APIconstructor) {
     ]);
     
     API.addTrialSet('incong', [
-        {inherit: 'stimulus_trial', data: { leftVal: 1, rightVal: 2, leftSize: 100, rightSize: 20, correct:current.answers[1]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 2, rightVal: 4, leftSize: 100, rightSize: 20, correct:current.answers[1]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 4, rightVal: 8, leftSize: 100, rightSize: 20, correct:current.answers[1]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 2, rightVal: 1, leftSize: 20, rightSize: 100, correct:current.answers[0]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 4, rightVal: 2, leftSize: 20, rightSize: 100, correct:current.answers[0]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 8, rightVal: 4, leftSize: 20, rightSize: 100, correct:current.answers[0]}}
+        {inherit: 'stimulus_trial', data: { leftVal: 1, rightVal: 2, leftSize: 100, rightSize: 20, correct:current.answers[0]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 2, rightVal: 4, leftSize: 100, rightSize: 20, correct:current.answers[0]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 4, rightVal: 8, leftSize: 100, rightSize: 20, correct:current.answers[0]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 2, rightVal: 1, leftSize: 20, rightSize: 100, correct:current.answers[1]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 4, rightVal: 2, leftSize: 20, rightSize: 100, correct:current.answers[1]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 8, rightVal: 4, leftSize: 20, rightSize: 100, correct:current.answers[1]}}
     ]);
     
     API.addTrialSet('neu', [
-        {inherit: 'stimulus_trial', data: { leftVal: 1, rightVal: 2, leftSize: 20, rightSize: 20, correct:current.answers[1]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 2, rightVal: 4, leftSize: 20, rightSize: 20, correct:current.answers[1]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 4, rightVal: 8, leftSize: 20, rightSize: 20, correct:current.answers[1]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 1, rightVal: 2, leftSize: 100, rightSize: 100, correct:current.answers[1]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 2, rightVal: 4, leftSize: 100, rightSize: 100, correct:current.answers[1]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 4, rightVal: 8, leftSize: 100, rightSize: 100, correct:current.answers[1]}},
-    
-        {inherit: 'stimulus_trial', data: { leftVal: 2, rightVal: 1, leftSize: 20, rightSize: 20, correct:current.answers[0]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 4, rightVal: 2, leftSize: 20, rightSize: 20, correct:current.answers[0]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 8, rightVal: 4, leftSize: 20, rightSize: 20, correct:current.answers[0]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 2, rightVal: 1, leftSize: 100, rightSize: 100, correct:current.answers[0]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 4, rightVal: 2, leftSize: 100, rightSize: 100, correct:current.answers[0]}},
-        {inherit: 'stimulus_trial', data: { leftVal: 8, rightVal: 4, leftSize: 100, rightSize: 100, correct:current.answers[0]}}
+        {inherit: 'stimulus_trial', data: { leftVal: 1, rightVal: 1, leftSize: 20, rightSize: 100, correct:current.answers[1]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 2, rightVal: 2, leftSize: 20, rightSize: 100, correct:current.answers[1]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 4, rightVal: 4, leftSize: 20, rightSize: 100, correct:current.answers[1]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 8, rightVal: 8, leftSize: 20, rightSize: 100, correct:current.answers[1]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 1, rightVal: 1, leftSize: 100, rightSize: 20, correct:current.answers[0]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 2, rightVal: 2, leftSize: 100, rightSize: 20, correct:current.answers[0]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 4, rightVal: 4, leftSize: 100, rightSize: 20, correct:current.answers[0]}},
+        {inherit: 'stimulus_trial', data: { leftVal: 4, rightVal: 4, leftSize: 100, rightSize: 20, correct:current.answers[0]}}
     ]);
 
 
